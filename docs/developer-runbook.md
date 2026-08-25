@@ -1,16 +1,46 @@
-# SudeshDahale Repository Development Runbook
+# SudeshDahale Repository – Developer Runbook
 
 ## Prerequisites
 - Git
-- A modern web browser
-- A text editor or IDE (e.g., VS Code)
+- Node.js (optional, for live Markdown preview tools like `markdown-it` or `vitepress`)
+- A Markdown viewer/editor (e.g., VS Code with Markdown extensions)
 
 ## Local Setup & Development
-1. Clone the repository: git clone https://github.com/SudeshDahale/SudeshDahale.git
-2. Navigate into the project directory: cd SudeshDahale
-3. Review the README.md for any additional setup instructions
-4. Open the project files in your editor
-5. If the site is plain HTML/CSS, you can open index.html directly in a browser or use a simple HTTP server (e.g., python -m http.server) to serve the files locally.
+1. 1. **Clone the repository**
+   ```bash
+   git clone https://github.com/SudeshDahale/SudeshDahale.git
+   cd SudeshDahale
+   ```
+2. 2. **(Optional) Install a local Markdown preview server**
+   If you want a live‑reload preview, install one of the following tools globally:
+3.    - **VitePress**
+     ```bash
+     npm i -g vitepress
+     ```
+   - **Docsify**
+     ```bash
+     npm i -g docsify-cli
+     ```
+   - **markdown-it-cli**
+     ```bash
+     npm i -g markdown-it-cli
+     ```
+4. 3. **Start the preview server**
+   Choose the tool you installed:
+5.    - VitePress:
+     ```bash
+     vitepress dev .
+     ```
+   - Docsify:
+     ```bash
+     docsify serve .
+     ```
+   - markdown-it-cli:
+     ```bash
+     markdown-it -w -o index.html README.md && live-server .
+     ```
+6. 4. **Open the site**
+   Navigate to `http://localhost:3000` (or the port shown by the tool) to view the rendered Markdown documentation.
 
 ## Running Tests
 ```bash
@@ -18,10 +48,13 @@
 ```
 
 ## Troubleshooting
-### Cannot view the site in the browser
-**Resolution:** Ensure you are opening the correct HTML file or start a local HTTP server; some browsers block loading local resources via file:// protocol.
+### Markdown preview does not update after saving changes.
+**Resolution:** Ensure the preview tool is running with a watch flag (`-w` for markdown-it-cli) or use a tool that supports hot‑reload like VitePress. Restart the server if needed.
 
-### Git clone fails
-**Resolution:** Check your internet connection and that you have Git installed; use SSH URL if you have SSH keys configured.
+### Command `vitepress`/`docsify` not found.
+**Resolution:** Make sure Node.js is installed and the tool was installed globally (`npm i -g <tool>`). Verify with `node -v` and `npm -v`.
+
+### Port conflict when starting the preview server.
+**Resolution:** Stop any process using the default port (3000) or start the server on a different port, e.g., `vitepress dev . --port 4000`.
 
 

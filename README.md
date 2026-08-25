@@ -1,38 +1,32 @@
-# SudeshDahale – Personal Documentation Site
+# SudeshDahale Portfolio & Documentation
 
-A static, monolithic site housing Sudesh Dahale’s project documentation and overview.
+A static Markdown site showcasing Sudesh Dahale's projects and technical write-ups.
 
 ## Overview
 
-This repository contains the source for a simple static website that serves as a centralized hub for Sudesh Dahale’s documentation, project overviews, and personal information. Built as a monolithic static site, all content lives in plain files (Markdown, HTML, CSS) and can be viewed directly in a browser without any server‑side processing.
+This repository houses a collection of Markdown-based documentation and portfolio content for Sudesh Dahale. Organized as a static site, the pages are written in plain Markdown and can be rendered by any static site generator or viewed directly on GitHub. The structure is simple: a top-level README provides an entry point, while additional Markdown files can be added to expand the documentation set.
 
 ## Features
 
-- Monolithic static‑site architecture – a single repository holds all assets.
-- Plain‑text documentation written in Markdown for easy editing and versioning.
-- Responsive design using lightweight CSS, ensuring readability on all devices.
-- Zero‑runtime dependencies – no build tools or server required.
-- Clear navigation structure with an index page linking to individual documentation sections.
+- Clear, human‑readable documentation written in Markdown.
+- Easy-to‑extend structure for adding new project pages or blog posts.
+- Fully static – no build tools or runtime dependencies required.
+- Viewable directly on GitHub or via any static site generator (e.g., Jekyll, Hugo).
 
 ## Quick Start
 
 ```bash
-```bash
-# Clone the repository
 git clone https://github.com/SudeshDahale/SudeshDahale.git
 cd SudeshDahale
-
-# Open the site in a browser (no build step required)
-# On macOS/Linux
-open index.html
-# On Windows
-start index.html
-```
+# Open the README or any .md file in your preferred Markdown viewer or editor
+# Optional: Serve with a static site generator, e.g.,
+#   gem install jekyll
+#   jekyll serve
 ```
 
 ## Architecture
 
-Monolith – The entire site is a single static bundle of HTML, CSS, and Markdown files. No backend services or micro‑services are involved; the site can be served directly by any static file server or opened locally.
+The repository follows a static‑site architecture: all content lives as Markdown files, with no server‑side code. Rendering is performed by the viewer (GitHub, a Markdown editor, or a static‑site generator). This makes the site lightweight, portable, and easy to maintain.
 
 ---
 *This file is kept in sync by [AutoScribe](https://github.com) — edits here may be overwritten on the next sync.*
