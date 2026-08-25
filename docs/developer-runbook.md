@@ -1,46 +1,17 @@
-# SudeshDahale Repository – Developer Runbook
+# SudeshDahale Repository Developer Runbook
 
 ## Prerequisites
-- Git
-- Node.js (optional, for live Markdown preview tools like `markdown-it` or `vitepress`)
-- A Markdown viewer/editor (e.g., VS Code with Markdown extensions)
+- Git installed (>=2.20)
+- A Markdown viewer or editor (e.g., VS Code, Typora) to read the README
 
 ## Local Setup & Development
-1. 1. **Clone the repository**
-   ```bash
-   git clone https://github.com/SudeshDahale/SudeshDahale.git
-   cd SudeshDahale
-   ```
-2. 2. **(Optional) Install a local Markdown preview server**
-   If you want a live‑reload preview, install one of the following tools globally:
-3.    - **VitePress**
-     ```bash
-     npm i -g vitepress
-     ```
-   - **Docsify**
-     ```bash
-     npm i -g docsify-cli
-     ```
-   - **markdown-it-cli**
-     ```bash
-     npm i -g markdown-it-cli
-     ```
-4. 3. **Start the preview server**
-   Choose the tool you installed:
-5.    - VitePress:
-     ```bash
-     vitepress dev .
-     ```
-   - Docsify:
-     ```bash
-     docsify serve .
-     ```
-   - markdown-it-cli:
-     ```bash
-     markdown-it -w -o index.html README.md && live-server .
-     ```
-6. 4. **Open the site**
-   Navigate to `http://localhost:3000` (or the port shown by the tool) to view the rendered Markdown documentation.
+1. 1. Clone the repository:
+2.    git clone https://github.com/SudeshDahale/SudeshDahale.git
+3. 2. Change into the project directory:
+4.    cd SudeshDahale
+5. 3. Open the README.md file to understand the project overview and any additional instructions:
+6.    - Using VS Code: code README.md
+7.    - Or any preferred markdown viewer/editor.
 
 ## Running Tests
 ```bash
@@ -48,13 +19,10 @@
 ```
 
 ## Troubleshooting
-### Markdown preview does not update after saving changes.
-**Resolution:** Ensure the preview tool is running with a watch flag (`-w` for markdown-it-cli) or use a tool that supports hot‑reload like VitePress. Restart the server if needed.
+### Unable to clone the repository (e.g., `fatal: repository not found`)
+**Resolution:** Verify the repository URL and your network connectivity. Ensure you have access rights to the repository.
 
-### Command `vitepress`/`docsify` not found.
-**Resolution:** Make sure Node.js is installed and the tool was installed globally (`npm i -g <tool>`). Verify with `node -v` and `npm -v`.
-
-### Port conflict when starting the preview server.
-**Resolution:** Stop any process using the default port (3000) or start the server on a different port, e.g., `vitepress dev . --port 4000`.
+### Markdown rendering issues in the editor
+**Resolution:** Use a dedicated markdown viewer or an IDE with markdown preview support (e.g., VS Code, Atom).
 
 
