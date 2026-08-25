@@ -1,36 +1,32 @@
-# SudeshDahale Personal Repository
+# Sudesh Dahale Portfolio & Documentation
 
-A collection of personal projects, notes, and documentation by Sudesh Dahale.
+A static site showcasing Sudesh Dahale’s projects, resume, and technical documentation.
 
 ## Overview
 
-This repository serves as a centralized hub for Sudesh Dahale's personal work, including project overviews, usage instructions, and documentation. It follows a simple monolithic structure, grouping all content under the repository root for easy navigation and maintenance.
+This repository houses a static website that serves as Sudesh Dahale’s personal portfolio and documentation hub. Built with plain HTML, CSS, and optional client‑side JavaScript, the site presents an overview of Sudesh’s professional background, links to projects, a résumé, and detailed documentation for his work. All content is organized in markdown files that are rendered as static pages, making the site lightweight, easy to host, and straightforward to maintain.
 
 ## Features
 
-- Comprehensive README with project overview and usage guidelines
-- Organized documentation sections for each personal project
-- Clear quick-start instructions for cloning and exploring the repository
-- Monolithic layout for straightforward access to all files
+- Responsive, mobile‑first design for seamless viewing on any device.
+- Project showcase with descriptions, screenshots, and live demo links.
+- Embedded résumé download (PDF) and contact form using a third‑party form handler.
+- Markdown‑based documentation section that can be extended with new pages.
+- Simple deployment: can be hosted on GitHub Pages, Netlify, or any static‑site host.
 
 ## Quick Start
 
 ```bash
-```bash
-# Clone the repository
 git clone https://github.com/SudeshDahale/SudeshDahale.git
-
-# Navigate into the project directory
 cd SudeshDahale
-
-# View the documentation
-less README.md
-```
+# No build step required – open the site locally
+python -m http.server 8000   # or any static server of your choice
+# Then navigate to http://localhost:8000 in your browser
 ```
 
 ## Architecture
 
-The repository adopts a monolithic architecture, where all documentation and project assets reside in a single, flat directory structure without separate services or layers. This simplifies navigation and reduces overhead for a personal codebase.
+The project follows a classic static‑site architecture: source files (HTML, CSS, JS, and markdown) reside in the repository; the browser directly serves these assets without server‑side processing. Documentation pages are written in markdown and converted to HTML at build time (if a static site generator is added) or served as pre‑rendered HTML. This simple, file‑based structure ensures fast load times and easy hosting.
 
 ---
 *This file is kept in sync by [AutoScribe](https://github.com) — edits here may be overwritten on the next sync.*

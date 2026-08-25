@@ -1,35 +1,39 @@
-# SudeshDahale Repository Developer Runbook
+# SudeshDahale Repository – Developer Runbook
 
 ## Prerequisites
-- Git (for cloning the repository)
-- A text editor or IDE (e.g., Visual Studio Code, Sublime Text)
-- Markdown preview tool (optional, e.g., VS Code's built‑in preview, Marked, or any GitHub‑flavored markdown viewer)
+- Git installed (version 2.20+)
+- A text editor or IDE (VS Code, Sublime, etc.)
 
 ## Local Setup & Development
 1. 1. Clone the repository:
-   ```
-   git clone https://github.com/SudeshDahale/SudeshDahale.git
-   ```
-2. 2. Change into the project directory:
-   ```
-   cd SudeshDahale
-   ```
-3. 3. Open the `README.md` file in your preferred editor to view the documentation.
-4. 4. (Optional) Launch a markdown preview to render the README as HTML for easier reading.
+2.    ```
+3.    git clone https://github.com/SudeshDahale/SudeshDahale.git
+4.    cd SudeshDahale
+5.    ```
+6. 2. Review the top‑level documentation:
+7.    - Open `README.md` in your editor or render it with a markdown viewer.
+8.    - The README contains the project overview, usage instructions, and any additional guidance.
+9. 3. (Optional) If you intend to publish the static site:
+10.    - Ensure you have a static‑site server (e.g., Python’s built‑in HTTP server) to preview HTML files.
+11.    - Example:
+12.      ```
+13.      python -m http.server 8000
+14.      # Then open http://localhost:8000 in a browser
+15.      ```
 
 ## Running Tests
 ```bash
-No automated tests are defined for this repository.
+
 ```
 
 ## Troubleshooting
-### Git clone fails with authentication or permission errors.
-**Resolution:** Verify that you have access to the repository. Use the correct HTTPS or SSH URL and ensure your SSH keys or credentials are properly configured.
+### Unable to locate the repository after cloning.
+**Resolution:** Verify the clone URL and ensure you have internet connectivity. Run `git status` inside the cloned directory to confirm the repository was created.
 
-### Markdown preview displays incorrectly or does not render GitHub‑flavored features.
-**Resolution:** Use a markdown viewer that supports GFM (GitHub Flavored Markdown). VS Code's built‑in preview or online tools like GitHub's web UI provide accurate rendering.
+### Markdown rendering looks broken in the editor.
+**Resolution:** Install a markdown preview extension (e.g., "Markdown Preview" for VS Code) or use an external viewer such as `grip` (`pip install grip`).
 
-### Changes to `README.md` are not reflected when viewing locally.
-**Resolution:** Make sure you have saved the file in your editor and refresh the markdown preview. If using a static site generator, rebuild the site according to its documentation.
+### Static site preview shows a 404 or blank page.
+**Resolution:** Make sure you are serving the correct directory (the root of the repository) and that the server is pointed to the folder containing the HTML files.
 
 
