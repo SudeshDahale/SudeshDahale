@@ -1,28 +1,36 @@
-# SudeshDahale Portfolio
+# SudeshDahale Personal Repository
 
-Showcasing personal projects and documentation of Sudesh Dahale.
+A collection of personal projects, notes, and documentation by Sudesh Dahale.
 
 ## Overview
 
-This repository serves as a personal portfolio and documentation hub for Sudesh Dahale. It aggregates project descriptions, technical write-ups, and other relevant material in a static, markdown-driven format, making it easy to browse and share.
+This repository serves as a centralized hub for Sudesh Dahale's personal work, including project overviews, usage instructions, and documentation. It follows a simple monolithic structure, grouping all content under the repository root for easy navigation and maintenance.
 
 ## Features
 
-- Centralized collection of project documentation and personal notes.
-- Markdown files organized for clear navigation and readability.
-- Static site ready for GitHub Pages deployment.
+- Comprehensive README with project overview and usage guidelines
+- Organized documentation sections for each personal project
+- Clear quick-start instructions for cloning and exploring the repository
+- Monolithic layout for straightforward access to all files
 
 ## Quick Start
 
 ```bash
+```bash
+# Clone the repository
 git clone https://github.com/SudeshDahale/SudeshDahale.git
+
+# Navigate into the project directory
 cd SudeshDahale
-# Open the README or any markdown file with your preferred editor or viewer
+
+# View the documentation
+less README.md
+```
 ```
 
 ## Architecture
 
-The repository follows a static documentation architecture: all content is stored as plain markdown files (e.g., README.md) without any build or runtime dependencies, allowing direct viewing on GitHub or via a static site host.
+The repository adopts a monolithic architecture, where all documentation and project assets reside in a single, flat directory structure without separate services or layers. This simplifies navigation and reduces overhead for a personal codebase.
 
 ---
 *This file is kept in sync by [AutoScribe](https://github.com) — edits here may be overwritten on the next sync.*
