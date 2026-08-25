@@ -1,34 +1,34 @@
 # Technical Architecture Guide for SudeshDahale Repository
 
 ## System Overview
-The SudeshDahale repository contains only a single README.md file, making it a pure documentation monolith. All project knowledge, usage instructions, and overview are captured in Markdown and version‑controlled with Git on GitHub. The architecture therefore revolves around how this documentation is authored, stored, versioned, and presented to readers.
+The SudeshDahale repository is a static documentation collection. It consists primarily of a README.md file that provides project description, usage, and other information. The architecture is simple and static, relying on version‑controlled markdown files rendered by GitHub or any static site generator.
 
 ## System Layers
-### Documentation Layer
-**Technologies:** Markdown, Git
+### Source Control Layer
+**Technologies:** Git
 
-Core content authored in Markdown. The README.md provides project description, goals, and any usage notes. No source code or binaries are present, so this layer is the sole source of truth for the repository.
+Git repository hosting the markdown files and any ancillary documentation assets.
 
-### Version Control Layer
-**Technologies:** Git, GitHub
+### Documentation Storage Layer
+**Technologies:** Markdown
 
-Manages changes, history, and collaboration for the documentation. All edits are committed to the Git repository and pushed to GitHub, enabling pull‑request workflows and change tracking.
+Raw markdown files stored in the repository, serving as the single source of truth for project information.
 
 ### Presentation Layer
-**Technologies:** GitHub UI, HTML, GitHub Pages (optional)
+**Technologies:** GitHub UI, Jekyll, Hugo
 
-Renders the Markdown into HTML for end‑users. GitHub’s native renderer displays the README.md in the repository view, and the same file can be served via GitHub Pages or other static site generators if needed.
+GitHub's web UI or a static site generator (e.g., Jekyll, Hugo) renders the markdown into HTML for end‑users.
 
 
 
 ## Data Flow & Pipelines
-Author edits README.md locally → `git add` and `git commit` → `git push` to GitHub → GitHub stores the new commit and updates its Markdown rendering engine → Users view the rendered HTML in the repository page or through a hosted static site.
+When a contributor updates README.md, the change is committed to the Git repository. The Git hosting platform detects the push, stores the new version, and automatically renders the markdown to HTML for browser consumption. If a static site generator is employed, a build step reads the markdown files, transforms them into static HTML pages, and publishes them to a web server or GitHub Pages.
 
 ## Key Design Decisions
-- Keep all project information in a single README.md to minimize maintenance overhead
-- Use plain Markdown for maximum portability and easy editing
-- Leverage GitHub's built‑in Markdown rendering instead of building a custom viewer
-- Version control all documentation changes to provide auditability and collaborative editing
+- Store documentation as plain markdown to keep it lightweight and versionable
+- Rely on GitHub's built‑in markdown rendering to avoid additional infrastructure
+- If richer styling is needed, optionally integrate a static site generator like Jekyll
+- Keep all documentation in a single repository to simplify access and collaboration
 
 ## Scalability & Reliability
-Although the repository is currently a single‑file monolith, it can scale by adding a `/docs` directory with additional Markdown files, organizing content by topic, and optionally integrating a static site generator (e.g., MkDocs or Jekyll) to produce a full documentation website. GitHub's branching and pull‑request model scales naturally with team size, and the Markdown format remains lightweight regardless of document volume.
+The static nature of the repository scales naturally: adding more markdown files does not affect performance of rendering on GitHub. For large documentation sets, a static site generator can pre‑render pages, and hosting on a CDN (e.g., GitHub Pages) provides global distribution with negligible cost.
