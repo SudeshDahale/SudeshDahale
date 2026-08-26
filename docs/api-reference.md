@@ -4,7 +4,7 @@
 **Authentication:** Bearer JWT Token or Session Cookie
 
 ## Overview
-The SudeshDahale repository is a static documentation site without any backend services or HTTP endpoints. It includes only markdown files such as README.md.
+The SudeshDahale repository does not contain any source code defining web services, API endpoints, or server-side logic. It consists solely of documentation (e.g., README.md). Consequently, there are no HTTP endpoints, request parameters, or response structures to document.
 
 ## Endpoints
 No endpoints mapped.
