@@ -1,10 +1,10 @@
-# SudeshDahale Documentation Site
+# SudeshDahale Repository API Reference
 
-**Base URL:** ``  
-**Authentication:** None
+**Base URL:** `http://localhost:8000/api`  
+**Authentication:** Bearer JWT Token or Session Cookie
 
 ## Overview
-This repository hosts a static documentation site. It does not expose any HTTP API endpoints; its purpose is to provide project overview, usage instructions, and related documentation via static files such as README.md.
+The SudeshDahale repository is a static documentation site without any backend services or HTTP endpoints. It includes only markdown files such as README.md.
 
 ## Endpoints
 No endpoints mapped.

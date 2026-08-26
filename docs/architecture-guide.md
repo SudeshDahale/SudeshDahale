@@ -1,44 +1,24 @@
 # Technical Architecture Guide for SudeshDahale/SudeshDahale
 
 ## System Overview
-The SudeshDahale repository is a minimal static‑site project whose primary artifact is a Markdown documentation file (README.md). The repository follows a static‑site architectural style, meaning that the content is stored as static assets (Markdown) and, when deployed, is served directly as static files without server‑side code or runtime processing. This guide documents the logical layers, data flow, design decisions, and scalability considerations that stem from this architecture.
-
-**Evidence**:
-- The only tracked file shown is `README.md`, which is a Markdown document.
-- The reported architecture style is *Static Site*.
-- No source code, configuration, or build scripts are present in the repository snapshot.
-
-Given these facts, the system can be described in terms of three logical layers: Content, Build/Generation, and Hosting/Delivery.
+The SudeshDahale/SudeshDahale repository is a monolithic static site that primarily contains project documentation in markdown format (e.g., README.md). There are no dynamic components, backend services, or external dependencies detected. The site is intended to be served directly as static files, typically via a static file host such as GitHub Pages or any generic HTTP server that can serve markdown or pre‑rendered HTML.
 
 ## System Layers
 ### Content Layer
-**Technologies:** Markdown
+All documentation lives as plain markdown files in the repository (e.g., README.md). This layer is the sole source of truth for the site’s content.
 
-Holds the source documentation in Markdown (`README.md`). This layer is pure data, versioned in Git, and contains no executable code.
-
-### Build/Generation Layer
-**Technologies:** Static‑site generators (e.g., Jekyll, Hugo, MkDocs) – optional
-
-Converts Markdown into static web assets (HTML, CSS, images). The repository does not ship a generator, but the static‑site style implies an optional build step performed by CI/CD pipelines or hosting services that automatically render Markdown to HTML.
-
-### Hosting & Delivery Layer
-**Technologies:** CDN (e.g., CloudFront, Netlify CDN), Object storage (e.g., S3, GitHub Pages)
-
-Serves the generated static assets over HTTP. Because the site contains no dynamic backend, any CDN or object‑storage service can host the files with near‑zero operational overhead.
+### Delivery Layer
+A static file server (GitHub Pages, Nginx, Apache, or any CDN edge node) reads the markdown files from the repository and serves them to clients, optionally rendering markdown to HTML.
 
 
 
 ## Data Flow & Pipelines
-1. **Authoring** – Documentation authors edit `README.md` (Markdown) in the repository.  
-2. **Version Control** – Changes are committed to Git and pushed to the remote repository.  
-3. **Build (optional)** – If a static‑site generator (e.g., Jekyll, Hugo, MkDocs) is configured downstream, the Markdown is transformed into HTML, CSS, and asset files.  
-4. **Deployment** – The generated static files are uploaded to a static‑hosting service (GitHub Pages, Netlify, CloudFront, etc.).  
-5. **Delivery** – End‑users request the site via HTTP; the hosting service serves the pre‑rendered HTML/CSS/JS directly from edge caches.
+1. A client (browser) initiates an HTTP GET request for a resource (e.g., `/README.md` or a derived HTML page). 2. The static file server retrieves the raw markdown file from the repository's file system. 3. If the server is configured to render markdown, it converts the markdown to HTML on‑the‑fly; otherwise, the raw markdown is served and rendered by the client (e.g., GitHub UI). 4. The resulting HTML (or markdown) is sent back to the client, which displays the documentation.
 
 ## Key Design Decisions
-- Use of plain Markdown for documentation simplifies authoring and keeps the repository lightweight.
-- Adopting a static‑site model eliminates runtime dependencies, reducing security surface area and operational costs.
-- Storing documentation alongside source code (in the same repo) ensures documentation versioning is tied to code releases.
+- Use of a monolithic static site eliminates the need for server‑side code, databases, or runtime environments, reducing operational overhead.
+- All documentation is kept in a single repository to simplify version control and change tracking.
+- Markdown format was chosen for its readability in source control and ease of rendering to HTML.
 
 ## Scalability & Reliability
-Static sites scale automatically because each request is served from cached copies of immutable files. Adding a CDN in front of the storage bucket provides global low‑latency delivery without any code changes. The only scalability limit is the size of the static assets; with a single `README.md`, the footprint is negligible. Future growth (additional markdown files, images, or interactive assets) can be accommodated by expanding the content layer and optionally configuring a CI pipeline to regenerate the site on each commit.
+Because the site consists only of static assets, scalability is achieved automatically by the underlying static hosting platform. Traffic spikes are handled by the CDN edge caches, and adding more content does not affect request latency. The repository can grow arbitrarily in size; the static host will serve files directly from storage without requiring additional compute resources.

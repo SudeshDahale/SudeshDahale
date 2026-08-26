@@ -1,25 +1,32 @@
 # SudeshDahale Repository – Developer Runbook
 
 ## Prerequisites
-- Git installed (version 2.20+)
-- A text editor or IDE (VS Code, Sublime, etc.)
+- Git client (>=2.20)
+- Node.js (optional, if you plan to run a local static site server like `serve` or `http-server`)
+- A Markdown viewer/editor (VS Code, typora, etc.)
 
 ## Local Setup & Development
 1. 1. Clone the repository:
-2.    ```
-3.    git clone https://github.com/SudeshDahale/SudeshDahale.git
-4.    cd SudeshDahale
-5.    ```
-6. 2. Review the top‑level documentation:
-7.    - Open `README.md` in your editor or render it with a markdown viewer.
-8.    - The README contains the project overview, usage instructions, and any additional guidance.
-9. 3. (Optional) If you intend to publish the static site:
-10.    - Ensure you have a static‑site server (e.g., Python’s built‑in HTTP server) to preview HTML files.
-11.    - Example:
-12.      ```
-13.      python -m http.server 8000
-14.      # Then open http://localhost:8000 in a browser
-15.      ```
+   ```bash
+   git clone https://github.com/SudeshDahale/SudeshDahale.git
+   cd SudeshDahale
+   ```
+2. 2. Verify that the repository contains the documentation files (e.g., `README.md`).
+3. 3. (Optional) If you want to preview the markdown as a static site, you can use a simple HTTP server:
+   ```bash
+   # Using Node's http-server (install globally if not present)
+   npm install -g http-server
+   http-server . -p 8080
+   ```
+   Then open `http://localhost:8080/README.md` in a browser.
+   
+4. 4. (Optional) For a richer preview, you may install a Markdown preview extension in VS Code or use tools like `markdown-it`.
+   ```bash
+   # Example using markdown-it-cli
+   npm install -g markdown-it-cli
+   markdown-it README.md -o index.html
+   open index.html
+   ```
 
 ## Running Tests
 ```bash
@@ -27,13 +34,13 @@
 ```
 
 ## Troubleshooting
-### Unable to locate the repository after cloning.
-**Resolution:** Verify the clone URL and ensure you have internet connectivity. Run `git status` inside the cloned directory to confirm the repository was created.
+### Unable to locate `README.md` after cloning.
+**Resolution:** Ensure the clone completed successfully. Run `git status` to verify files. If the repository is empty, check the remote branch and pull the correct branch (`git checkout main`).
 
-### Markdown rendering looks broken in the editor.
-**Resolution:** Install a markdown preview extension (e.g., "Markdown Preview" for VS Code) or use an external viewer such as `grip` (`pip install grip`).
+### Markdown preview shows raw markdown instead of formatted HTML.
+**Resolution:** Use a proper Markdown preview tool or serve the file through a static site generator. In VS Code, press `Ctrl+Shift+V` to open the preview pane.
 
-### Static site preview shows a 404 or blank page.
-**Resolution:** Make sure you are serving the correct directory (the root of the repository) and that the server is pointed to the folder containing the HTML files.
+### `http-server` command not found.
+**Resolution:** Install it globally with `npm install -g http-server` or use any other simple HTTP server (e.g., Python’s `python -m http.server`).
 
 

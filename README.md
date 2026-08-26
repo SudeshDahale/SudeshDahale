@@ -1,32 +1,36 @@
-# Sudesh Dahale Portfolio & Documentation
+# SudeshDahale Documentation Site
 
-A static site showcasing Sudesh Dahale’s projects, resume, and technical documentation.
+A simple static site housing project documentation and overviews.
 
 ## Overview
 
-This repository houses a static website that serves as Sudesh Dahale’s personal portfolio and documentation hub. Built with plain HTML, CSS, and optional client‑side JavaScript, the site presents an overview of Sudesh’s professional background, links to projects, a résumé, and detailed documentation for his work. All content is organized in markdown files that are rendered as static pages, making the site lightweight, easy to host, and straightforward to maintain.
+This repository hosts a monolithic static documentation site for Sudesh Dahale's projects. All content is maintained in Markdown files and can be served directly or via any static site hosting platform. The site provides a centralized place for project overviews, usage guides, and related documentation.
 
 ## Features
 
-- Responsive, mobile‑first design for seamless viewing on any device.
-- Project showcase with descriptions, screenshots, and live demo links.
-- Embedded résumé download (PDF) and contact form using a third‑party form handler.
-- Markdown‑based documentation section that can be extended with new pages.
-- Simple deployment: can be hosted on GitHub Pages, Netlify, or any static‑site host.
+- Centralized Markdown-based documentation for all Sudesh Dahale projects
+- Monolithic static site architecture for easy deployment
+- Simple setup with no external dependencies or build tools
+- Ready-to-serve HTML generated from Markdown
 
 ## Quick Start
 
 ```bash
+```bash
+# Clone the repository
 git clone https://github.com/SudeshDahale/SudeshDahale.git
 cd SudeshDahale
-# No build step required – open the site locally
-python -m http.server 8000   # or any static server of your choice
-# Then navigate to http://localhost:8000 in your browser
+
+# Serve the static site (requires Python 3.x for the simple HTTP server)
+python -m http.server 8000
+
+# Open your browser and navigate to http://localhost:8000
+```
 ```
 
 ## Architecture
 
-The project follows a classic static‑site architecture: source files (HTML, CSS, JS, and markdown) reside in the repository; the browser directly serves these assets without server‑side processing. Documentation pages are written in markdown and converted to HTML at build time (if a static site generator is added) or served as pre‑rendered HTML. This simple, file‑based structure ensures fast load times and easy hosting.
+The project follows a static site monolith architecture: all documentation lives in a single repository, written in Markdown, and is served as static HTML without a backend or dynamic runtime.
 
 ---
 *This file is kept in sync by [AutoScribe](https://github.com) — edits here may be overwritten on the next sync.*
