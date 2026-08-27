@@ -1,10 +1,10 @@
 # SudeshDahale Documentation Repository
 
-**Base URL:** `http://localhost:8000/api`  
-**Authentication:** Bearer JWT Token or Session Cookie
+**Base URL:** ``  
+**Authentication:** 
 
 ## Overview
-This repository contains only documentation (e.g., README.md) and does not expose any programmatic API endpoints. Consequently, there are no callable routes or services to document.
+This repository contains project documentation in Markdown format, primarily the README.md file. It does not expose any HTTP API endpoints.
 
 ## Endpoints
 No endpoints mapped.

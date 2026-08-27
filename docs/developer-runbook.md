@@ -1,39 +1,46 @@
-# SudeshDahale/SudeshDahale Developer Runbook
+# SudeshDahale/SudeshDahale – Developer Runbook
 
 ## Prerequisites
-- Git installed (https://git-scm.com/)
-- A text editor or IDE for editing Markdown files (e.g., VS Code, Atom, Sublime Text)
-- Optional: A Markdown preview tool or static site generator if you wish to view rendered documentation locally
+- Git installed (>=2.20)
+- A text editor or IDE capable of rendering Markdown (e.g., VS Code, GitHub Desktop, Typora)
+- Optional: A local HTTP server to preview Markdown (e.g., `python -m http.server` or VS Code Live Server extension)
 
 ## Local Setup & Development
-1. 1. Clone the repository:
-2.    ```
-3.    git clone https://github.com/SudeshDahale/SudeshDahale.git
-4.    ```
-5. 2. Navigate into the repository directory:
-6.    ```
-7.    cd SudeshDahale
-8.    ```
-9. 3. Verify that the documentation files are present (e.g., `README.md`).
-10. 4. Open the Markdown files in your preferred editor to begin editing.
-11. 5. (Optional) If you want to view the rendered documentation locally, you can:
-12.    - Use the built‑in Markdown preview in VS Code (View → Open Preview).
-13.    - Run a lightweight local server such as `python -m http.server` in the repo root and open the files in a browser.
-14.    - If the project later adopts a static‑site generator (e.g., MkDocs, Jekyll), follow its specific build instructions.
+1. 1. **Clone the repository**
+   ```bash
+   git clone https://github.com/SudeshDahale/SudeshDahale.git
+   cd SudeshDahale
+   ```
+2. 2. **Verify repository contents**
+   The project consists of a single documentation file:
+   - `README.md` – the primary source of project overview and usage instructions.
+3. 3. **Open the documentation**
+   - Use any Markdown viewer/editor to read the file locally, e.g.: 
+     ```bash
+     code README.md            # VS Code
+     typora README.md          # Typora
+     ```
+4. 4. **(Optional) Preview via a local web server**
+   If you prefer a rendered HTML view in a browser, you can start a simple HTTP server:
+   ```bash
+   # Python 3
+   python -m http.server 8000
+   # Then open http://localhost:8000/README.md in your browser
+   ```
 
 ## Running Tests
 ```bash
-
+No automated tests are defined for this documentation‑only repository.
 ```
 
 ## Troubleshooting
-### Markdown preview does not render correctly.
-**Resolution:** Ensure you are using a Markdown‑aware viewer. In VS Code, open the file and press `Ctrl+Shift+V` (Windows/Linux) or `Cmd+Shift+V` (macOS) to open the preview.
-
-### Changes to `README.md` are not reflected when viewing via a local web server.
-**Resolution:** Refresh the browser page after saving the file. If using a static‑site generator, make sure you have re‑run the build command.
+### README.md does not render correctly in the editor.
+**Resolution:** Ensure the editor’s Markdown preview feature is enabled or install a dedicated Markdown preview extension (e.g., VS Code’s built‑in Markdown preview: `Ctrl+Shift+V`).
 
 ### Git clone fails with authentication errors.
-**Resolution:** Verify that you have access to the repository and that your SSH keys or HTTPS credentials are correctly configured.
+**Resolution:** Verify you have access to the public repository or configure SSH keys if using the SSH URL.
+
+### Local HTTP server shows a directory listing instead of rendered Markdown.
+**Resolution:** Use a Markdown‑aware server or open the raw `README.md` in a browser‑based viewer (e.g., `markdown-preview` extension) rather than a plain file server.
 
 
