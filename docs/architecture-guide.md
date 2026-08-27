@@ -1,29 +1,40 @@
-# Technical Architecture Guide for SudeshDahale Documentation Repository
+# Technical Architecture Guide for SudeshDahale/SudeshDahale Documentation Repository
 
 ## System Overview
-The SudeshDahale repository is a monolithic collection of static documentation written in Markdown. The sole artifact observed is `README.md`, which serves as the primary entry point for the project's documentation. All documentation assets reside within the same repository, adhering to a single-tier architecture where content, build, and delivery are tightly coupled in a static site model.
+The SudeshDahale/SudeshDahale repository is a pure documentation repository. Its sole source file, `README.md`, houses all project information, serving as the central knowledge base. The architecture is therefore centered around documentation lifecycle management rather than traditional software layers. This guide outlines the documentation layers, their interactions, data flow, key design decisions, and scalability considerations.
 
 ## System Layers
-### Content Layer
+### Content Creation Layer
 **Technologies:** Markdown
 
-All documentation is authored in plain Markdown files. The repository currently contains `README.md` as the main document, and any additional Markdown files would be stored alongside it.
+Authors write documentation in Markdown within `README.md`. This layer focuses on clarity, structure, and adherence to Markdown standards.
 
-### Build/Transformation Layer
-If a build pipeline is employed, a static site generator (e.g., Jekyll, Hugo, or MkDocs) would consume the Markdown source and produce HTML assets. The repository does not include explicit configuration for a generator, so this layer is optional and can be added without altering the core architecture.
+### Version Control & Collaboration Layer
+**Technologies:** Git, GitHub
 
-### Delivery Layer
-The final HTML (or raw Markdown) is served to consumers via a static hosting platform such as GitHub Pages. Because the site is static, the delivery layer requires no server‑side logic.
+Git and GitHub manage changes, provide history, and enable collaborative review through pull requests.
+
+### Rendering & Publication Layer
+**Technologies:** GitHub Markdown Renderer
+
+GitHub’s built‑in Markdown renderer transforms `README.md` into a browsable HTML view for end‑users.
 
 
 
 ## Data Flow & Pipelines
-Author -> Git Repo (Markdown) -> Optional CI/Static Site Generator -> Static Hosting (GitHub Pages) -> End User
+1. **Authoring** – A contributor creates or updates content in `README.md` using Markdown syntax.  
+2. **Version Control** – Changes are committed to the Git repository on GitHub.  
+3. **Review & Merge** – Pull requests enable peer review; once approved, the changes are merged into the default branch.  
+4. **Rendering** – GitHub automatically renders the Markdown for web viewing.  
+5. **Consumption** – End‑users access the rendered `README.md` via the repository's web UI or raw file download.
 
 ## Key Design Decisions
-- Use of Markdown as the sole authoring format – ensures low barrier to contribution and platform‑agnostic content.
-- Monolithic repository layout – all documentation lives in a single repo, simplifying versioning and traceability.
-- Static site approach – eliminates runtime dependencies, enabling inexpensive, highly performant hosting.
+- Use a single `README.md` file to keep the documentation footprint minimal and discoverable.
+- Leverage GitHub’s native Markdown rendering to avoid external tooling or build pipelines.
+- Rely on pull‑request based reviews to maintain documentation quality and consistency.
 
 ## Scalability & Reliability
-Static documentation scales effortlessly: the content is served from a CDN (e.g., GitHub Pages) which can handle arbitrarily high request volumes with minimal latency. Adding new documents does not change the architecture; it merely increases the size of the static asset bundle. If the documentation set grows substantially, the optional Build Layer can be extended with a static site generator that supports incremental builds, keeping build times low.
+The current single‑file approach scales well for small to medium projects. As the knowledge base grows, the repository can evolve by:
+- Adding a `/docs/` directory with additional Markdown files for modular topics.
+- Introducing a static site generator (e.g., MkDocs or Docusaurus) to produce a richer documentation website without altering the core architecture.
+- Employing GitHub Actions for automated link checking, spell‑checking, or publishing to GitHub Pages, ensuring the documentation pipeline remains performant as content volume increases.
