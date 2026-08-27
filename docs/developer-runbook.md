@@ -1,45 +1,37 @@
-# SudeshDahale/SudeshDahale – Developer Runbook
+# SudeshDahale Repository – Developer Runbook
 
 ## Prerequisites
-- Git (>=2.30) – for cloning the repository.
-- A Markdown viewer or editor (e.g., VS Code, Typora) – to read and edit the documentation.
-- If the documentation is intended to be published as a static site, a static‑site generator (e.g., MkDocs, Hugo) may be required – verify the README or accompanying build scripts for the specific tool.
+- Git installed (version 2.20+)
+- A text editor or IDE of your choice (VS Code, IntelliJ, etc.)
+- Access to the internet to clone the repository
 
 ## Local Setup & Development
 1. 1. Clone the repository:
-   ```sh
-   git clone https://github.com/SudeshDahale/SudeshDahale.git
-   cd SudeshDahale
-   ```
-2. 2. Verify the repository contents. The only tracked source file is `README.md`, which houses the project overview and usage instructions.
-3. 3. If a static‑site generator is referenced in the `README.md`, install it globally or inside a virtual environment. Example for MkDocs:
-   ```sh
-   pip install mkdocs
-   ```
-4. 4. Build / preview the documentation (only needed when a generator is used). Example for MkDocs:
-   ```sh
-   mkdocs serve   # launches a local server at http://127.0.0.1:8000
-   ```
-5. 5. Edit `README.md` (or other markdown files) using your preferred editor. Changes can be previewed live if a generator server is running.
+2.    ```bash
+3.    git clone https://github.com/SudeshDahale/SudeshDahale.git
+4.    cd SudeshDahale
+5.    ```
+6. 2. Open the repository in your preferred editor to explore the documentation:
+7.    ```bash
+8.    code .   # VS Code
+9.    # or open with your IDE of choice
+10.    ```
+11. 3. Review the primary documentation file:
+12.    - `README.md` – contains project overview, purpose, and any usage instructions.
 
 ## Running Tests
 ```bash
-No automated tests are present in the repository. Validation is performed manually by reviewing the rendered documentation (e.g., via a Markdown preview or a static‑site generator).
+
 ```
 
 ## Troubleshooting
-### `git clone` fails with authentication errors.
-**Resolution:** Ensure you have proper access rights to the repository. Use an SSH key or a personal access token for HTTPS cloning if the repository is private.
+### Unable to clone the repository (e.g., `git@...` permission denied).
+**Resolution:** Verify that you have SSH access configured for GitHub or use the HTTPS URL. Ensure your SSH keys are added to your GitHub account.
 
-### Markdown preview shows garbled formatting or missing images.
-**Resolution:** Check that all referenced assets (images, links) are present in the repository and that relative paths are correct.
+### README does not render correctly in your editor.
+**Resolution:** Make sure you have a markdown preview extension installed (e.g., VS Code's built‑in Markdown preview).
 
-### Running `mkdocs serve` (or another generator) aborts with "module not found" errors.
-**Resolution:** Install the required generator as documented in the README. Use a virtual environment to avoid version conflicts:
-   ```sh
-   python -m venv .venv
-   source .venv/bin/activate
-   pip install mkdocs   # or the appropriate package
-   ```
+### Missing `README.md` after cloning.
+**Resolution:** Confirm you are on the correct branch (default is `main`). Run `git fetch --all && git checkout main`.
 
 
