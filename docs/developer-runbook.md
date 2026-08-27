@@ -1,48 +1,45 @@
-# SudeshDahale Repository – Developer Runbook
+# SudeshDahale/SudeshDahale – Developer Runbook
 
 ## Prerequisites
-- Git (v2.20+)
-- A text editor or IDE (VS Code, Sublime Text, etc.)
-- Markdown preview capability (built‑in in many editors or a simple static site preview tool like `markdown-preview`)
+- Git (>=2.30) – for cloning the repository.
+- A Markdown viewer or editor (e.g., VS Code, Typora) – to read and edit the documentation.
+- If the documentation is intended to be published as a static site, a static‑site generator (e.g., MkDocs, Hugo) may be required – verify the README or accompanying build scripts for the specific tool.
 
 ## Local Setup & Development
-1. 1. **Clone the repository**
-   ```bash
+1. 1. Clone the repository:
+   ```sh
    git clone https://github.com/SudeshDahale/SudeshDahale.git
    cd SudeshDahale
    ```
-2. 2. **Review the documentation**
-   Open `README.md` in your editor or run a markdown preview to see the project overview, usage instructions, and other docs.
-3. 3. **(Optional) Install a markdown preview tool**
-   If your editor does not provide live preview, you can install a lightweight preview server:
-   ```bash
-   # Example using npm (requires Node.js) – only if you want a local web preview
-   npm install -g markdown-preview
-   markdown-preview README.md
+2. 2. Verify the repository contents. The only tracked source file is `README.md`, which houses the project overview and usage instructions.
+3. 3. If a static‑site generator is referenced in the `README.md`, install it globally or inside a virtual environment. Example for MkDocs:
+   ```sh
+   pip install mkdocs
    ```
-   This will serve the rendered markdown at `http://localhost:8080`.
-4. 4. **Make changes**
-   Edit the documentation files (`*.md`) as needed. Commit and push following the usual Git workflow.
-5. 5. **Validate Markdown syntax** (optional)
-   ```bash
-   # Using markdownlint (requires Node.js)
-   npm install -g markdownlint-cli
-   markdownlint "*.md"
+4. 4. Build / preview the documentation (only needed when a generator is used). Example for MkDocs:
+   ```sh
+   mkdocs serve   # launches a local server at http://127.0.0.1:8000
    ```
+5. 5. Edit `README.md` (or other markdown files) using your preferred editor. Changes can be previewed live if a generator server is running.
 
 ## Running Tests
 ```bash
-
+No automated tests are present in the repository. Validation is performed manually by reviewing the rendered documentation (e.g., via a Markdown preview or a static‑site generator).
 ```
 
 ## Troubleshooting
-### Markdown preview does not render correctly or shows raw markdown.
-**Resolution:** Ensure the preview tool you are using supports GitHub‑flavored Markdown. If using `markdown-preview`, verify that Node.js is installed and that the tool is up‑to‑date (`npm update -g markdown-preview`).
+### `git clone` fails with authentication errors.
+**Resolution:** Ensure you have proper access rights to the repository. Use an SSH key or a personal access token for HTTPS cloning if the repository is private.
 
-### `npm: command not found` when trying to install a preview tool.
-**Resolution:** Install Node.js (v14 or later) from https://nodejs.org and ensure the `npm` command is in your PATH.
+### Markdown preview shows garbled formatting or missing images.
+**Resolution:** Check that all referenced assets (images, links) are present in the repository and that relative paths are correct.
 
-### Git clone fails with authentication errors.
-**Resolution:** Check that you have access to the repository. Use an SSH key or personal access token for private repos.
+### Running `mkdocs serve` (or another generator) aborts with "module not found" errors.
+**Resolution:** Install the required generator as documented in the README. Use a virtual environment to avoid version conflicts:
+   ```sh
+   python -m venv .venv
+   source .venv/bin/activate
+   pip install mkdocs   # or the appropriate package
+   ```
 
 

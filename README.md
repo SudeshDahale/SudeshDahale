@@ -1,48 +1,29 @@
-# SudeshDahale – Personal Portfolio & Documentation Site
+# SudeshDahale Personal Repository
 
-A static, monolithic site showcasing projects, blog posts, and personal documentation.
+Showcasing Sudesh Dahale's projects, notes, and documentation in a single monolithic repository.
 
 ## Overview
 
-This repository contains the source for a static personal website built as a single‑page monolith. All content—including the project overview, usage instructions, blog posts, and other documentation—is stored in Markdown and rendered by a static site generator. The site is designed to be simple to clone, build, and deploy to any static‑hosting provider (GitHub Pages, Netlify, Vercel, etc.).
+This repository serves as a personal collection of Sudesh Dahale's work, including project documentation, notes, and assorted resources. Organized as a monolith, all materials reside in a single repository without separate services or complex build pipelines, making it straightforward to browse and clone.
 
 ## Features
 
-- Single‑repo monolith: HTML, CSS, JS, and all content live together for easy maintenance.
-- Markdown‑driven documentation and blog posts, automatically converted to static pages.
-- Responsive, mobile‑first design with a clean, modern UI.
-- Zero‑runtime dependencies – the site can be built with just a static site generator or even pure HTML/CSS.
-- Simple deployment to any static‑hosting platform using a single `build` command.
+- Centralized location for all of Sudesh's project documentation and notes.
+- Clear directory structure with a dedicated `Documentation` folder.
+- Markdown files providing overviews, usage instructions, and design considerations.
+- Simple clone-and-view workflow – no build or runtime dependencies required.
 
 ## Quick Start
 
 ```bash
-```bash
-# Clone the repository
 git clone https://github.com/SudeshDahale/SudeshDahale.git
 cd SudeshDahale
-
-# If the site uses a static‑site generator (e.g., Jekyll, Hugo, or plain npm scripts), install dependencies
-echo "# Install dependencies if a package.json exists"
-if [ -f package.json ]; then npm install; fi
-
-# Build the static site
-echo "# Build the site – adjust the command to the generator used"
-if [ -f package.json ]; then npm run build; fi
-# For Jekyll: jekyll build
-# For Hugo: hugo
-
-# Preview locally (optional)
-echo "# Serve locally to test"
-if [ -f package.json ]; then npm run serve; fi
-# For Jekyll: jekyll serve
-# For Hugo: hugo server
-```
+# All content is viewable as Markdown; open README.md or any other .md file with your favorite editor or a Markdown viewer.
 ```
 
 ## Architecture
 
-The project follows a static‑site monolithic architecture: source files (Markdown, assets, templates) reside in a flat hierarchy, a build step compiles them into static HTML/CSS/JS, and the resulting `dist/` folder can be served directly without a backend.
+Monolithic repository layout: all files live in a single project tree with no micro‑service boundaries or separate deployment artifacts. Documentation is the primary content, organized under the `Documentation` module.
 
 ---
 *This file is kept in sync by [AutoScribe](https://github.com) — edits here may be overwritten on the next sync.*
