@@ -1,34 +1,34 @@
-# SudeshDahale/SudeshDahale Developer Runbook
+# SudeshDahale Repository – Developer Runbook
 
 ## Prerequisites
-- Git installed (for cloning the repository).
-- A Markdown editor or viewer (e.g., Visual Studio Code, Typora, or any IDE with Markdown preview support).
-- Optional: A local static site preview tool if you wish to view the documentation as a rendered site (e.g., `markdown-preview`, `MkDocs`, or a simple HTTP server).
+- Git (v2.20+)
+- A text editor or IDE (VS Code, Sublime Text, etc.)
+- Markdown preview capability (built‑in in many editors or a simple static site preview tool like `markdown-preview`)
 
 ## Local Setup & Development
-1. 1. Clone the repository:
-2.    ```bash
-3.    git clone https://github.com/SudeshDahale/SudeshDahale.git
-4.    cd SudeshDahale
-5.    ```
-6. 2. Verify that the repository contains the main documentation file:
-7.    ```bash
-8.    ls -1
-9.    # Expected output includes:
-10.    # README.md
-11.    ```
-12. 3. Open `README.md` in your preferred Markdown editor or IDE.
-13. 4. (Optional) If you want to preview the rendered Markdown locally:
-14.    - Using VS Code: open the file and press `Ctrl+Shift+V` to open the Markdown preview.
-15.    - Using a simple HTTP server (Python example):
-16.      ```bash
-17.      python -m http.server 8000
-18.      # Then navigate to http://localhost:8000/README.md in your browser.
-19.      ```
-20.    - Using `markdown-preview` (if installed):
-21.      ```bash
-22.      markdown-preview README.md
-23.      ```
+1. 1. **Clone the repository**
+   ```bash
+   git clone https://github.com/SudeshDahale/SudeshDahale.git
+   cd SudeshDahale
+   ```
+2. 2. **Review the documentation**
+   Open `README.md` in your editor or run a markdown preview to see the project overview, usage instructions, and other docs.
+3. 3. **(Optional) Install a markdown preview tool**
+   If your editor does not provide live preview, you can install a lightweight preview server:
+   ```bash
+   # Example using npm (requires Node.js) – only if you want a local web preview
+   npm install -g markdown-preview
+   markdown-preview README.md
+   ```
+   This will serve the rendered markdown at `http://localhost:8080`.
+4. 4. **Make changes**
+   Edit the documentation files (`*.md`) as needed. Commit and push following the usual Git workflow.
+5. 5. **Validate Markdown syntax** (optional)
+   ```bash
+   # Using markdownlint (requires Node.js)
+   npm install -g markdownlint-cli
+   markdownlint "*.md"
+   ```
 
 ## Running Tests
 ```bash
@@ -36,13 +36,13 @@
 ```
 
 ## Troubleshooting
-### Markdown preview does not render correctly or shows raw Markdown syntax.
-**Resolution:** Ensure you are using a proper Markdown preview tool or extension. In VS Code, confirm that the Markdown preview is open (`Ctrl+Shift+V`). If using a command‑line previewer, verify it is installed and invoked correctly.
+### Markdown preview does not render correctly or shows raw markdown.
+**Resolution:** Ensure the preview tool you are using supports GitHub‑flavored Markdown. If using `markdown-preview`, verify that Node.js is installed and that the tool is up‑to‑date (`npm update -g markdown-preview`).
 
-### Changes to `README.md` are not reflected in the preview.
-**Resolution:** Refresh the preview window or restart the preview tool. Some editors cache the view; a manual refresh (usually `Ctrl+R` or the refresh button) forces a re‑render.
+### `npm: command not found` when trying to install a preview tool.
+**Resolution:** Install Node.js (v14 or later) from https://nodejs.org and ensure the `npm` command is in your PATH.
 
-### `git clone` fails with authentication errors.
-**Resolution:** Check that you have proper network access and, if the repository is private, configure SSH keys or personal access tokens as described in GitHub's documentation.
+### Git clone fails with authentication errors.
+**Resolution:** Check that you have access to the repository. Use an SSH key or personal access token for private repos.
 
 

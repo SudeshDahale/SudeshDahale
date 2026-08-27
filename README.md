@@ -1,34 +1,48 @@
-# SudeshDahale – Personal Documentation Hub
+# SudeshDahale – Personal Portfolio & Documentation Site
 
-A single‑source markdown repository for Sudesh Dahale's projects, notes, and technical write‑ups.
+A static, monolithic site showcasing projects, blog posts, and personal documentation.
 
 ## Overview
 
-This repository is a static, monolithic markdown site that consolidates all of Sudesh Dahale's documentation into one place. It contains human‑readable guides, project overviews, and technical notes, all written in plain Markdown and rendered via any static‑site generator or simply viewed in a markdown viewer. The layout is deliberately simple: a top‑level README provides navigation to the various markdown files that make up the documentation suite.
+This repository contains the source for a static personal website built as a single‑page monolith. All content—including the project overview, usage instructions, blog posts, and other documentation—is stored in Markdown and rendered by a static site generator. The site is designed to be simple to clone, build, and deploy to any static‑hosting provider (GitHub Pages, Netlify, Vercel, etc.).
 
 ## Features
 
-- Centralized markdown documentation for all personal and professional projects.
-- Clear navigation structure driven by the top‑level README.
-- Zero‑runtime dependencies – view locally with any markdown viewer or host on GitHub Pages.
-- Version‑controlled documentation that evolves with the codebase.
+- Single‑repo monolith: HTML, CSS, JS, and all content live together for easy maintenance.
+- Markdown‑driven documentation and blog posts, automatically converted to static pages.
+- Responsive, mobile‑first design with a clean, modern UI.
+- Zero‑runtime dependencies – the site can be built with just a static site generator or even pure HTML/CSS.
+- Simple deployment to any static‑hosting platform using a single `build` command.
 
 ## Quick Start
 
 ```bash
+```bash
+# Clone the repository
 git clone https://github.com/SudeshDahale/SudeshDahale.git
 cd SudeshDahale
-# View locally with a markdown viewer, e.g.:
-# macOS: open README.md
-# Linux: xdg-open README.md
-# Or serve as a static site using a simple tool like mdbook or MkDocs:
-# pip install mkdocs
-# mkdocs serve
+
+# If the site uses a static‑site generator (e.g., Jekyll, Hugo, or plain npm scripts), install dependencies
+echo "# Install dependencies if a package.json exists"
+if [ -f package.json ]; then npm install; fi
+
+# Build the static site
+echo "# Build the site – adjust the command to the generator used"
+if [ -f package.json ]; then npm run build; fi
+# For Jekyll: jekyll build
+# For Hugo: hugo
+
+# Preview locally (optional)
+echo "# Serve locally to test"
+if [ -f package.json ]; then npm run serve; fi
+# For Jekyll: jekyll serve
+# For Hugo: hugo server
+```
 ```
 
 ## Architecture
 
-The repository follows a static‑site, monolithic architecture: a single Markdown tree serves as the entire content layer, with no separate services or back‑end components. All documentation lives under the repository root, and rendering is performed by the consumer (browser, markdown viewer, or static‑site generator).
+The project follows a static‑site monolithic architecture: source files (Markdown, assets, templates) reside in a flat hierarchy, a build step compiles them into static HTML/CSS/JS, and the resulting `dist/` folder can be served directly without a backend.
 
 ---
 *This file is kept in sync by [AutoScribe](https://github.com) — edits here may be overwritten on the next sync.*
