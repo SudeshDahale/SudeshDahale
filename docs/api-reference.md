@@ -1,10 +1,10 @@
-# SudeshDahale Documentation Repository
+# SudeshDahale Repository API Reference
 
 **Base URL:** ``  
 **Authentication:** 
 
 ## Overview
-This repository contains project documentation in Markdown format, primarily the README.md file. It does not expose any HTTP API endpoints.
+The SudeshDahale repository is a static documentation site built with Markdown. It does not expose any programmatic API endpoints. The repository consists primarily of documentation files such as README.md.
 
 ## Endpoints
 No endpoints mapped.

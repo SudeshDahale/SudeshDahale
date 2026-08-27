@@ -1,31 +1,34 @@
-# Sudesh Dahale – Personal Documentation Repository
+# SudeshDahale – Personal Documentation Hub
 
-A single-source of truth for Sudesh's projects, notes, and professional portfolio.
+A single‑source markdown repository for Sudesh Dahale's projects, notes, and technical write‑ups.
 
 ## Overview
 
-This repository serves as a curated collection of Markdown documentation that showcases Sudesh Dahale's technical work, project overviews, and personal notes. Structured as a monolithic documentation site, each file lives in the repository root (e.g., `README.md`) and can be rendered directly on GitHub or via any static site generator. The goal is to provide a clear, searchable, and version‑controlled knowledge base for collaborators and future self.
+This repository is a static, monolithic markdown site that consolidates all of Sudesh Dahale's documentation into one place. It contains human‑readable guides, project overviews, and technical notes, all written in plain Markdown and rendered via any static‑site generator or simply viewed in a markdown viewer. The layout is deliberately simple: a top‑level README provides navigation to the various markdown files that make up the documentation suite.
 
 ## Features
 
-- Comprehensive project overviews and technical write‑ups in Markdown.
-- Clear sectioning and navigation through GitHub's rendering of Markdown files.
-- Version‑controlled change history for all documentation.
-- Easy to extend with additional Markdown files for new projects or topics.
+- Centralized markdown documentation for all personal and professional projects.
+- Clear navigation structure driven by the top‑level README.
+- Zero‑runtime dependencies – view locally with any markdown viewer or host on GitHub Pages.
+- Version‑controlled documentation that evolves with the codebase.
 
 ## Quick Start
 
 ```bash
 git clone https://github.com/SudeshDahale/SudeshDahale.git
 cd SudeshDahale
-# No build step required – open any *.md file in a Markdown viewer or the GitHub UI.
-# (Optional) Render locally with a static site generator, e.g.:
-#   pip install mkdocs && mkdocs serve
+# View locally with a markdown viewer, e.g.:
+# macOS: open README.md
+# Linux: xdg-open README.md
+# Or serve as a static site using a simple tool like mdbook or MkDocs:
+# pip install mkdocs
+# mkdocs serve
 ```
 
 ## Architecture
 
-The repository follows a monolithic documentation architecture: a single logical unit (the repo) contains all Markdown files, each acting as an independent module that contributes to the overall knowledge base. No code execution, dependencies, or service layers are present; the focus is on content organization and readability.
+The repository follows a static‑site, monolithic architecture: a single Markdown tree serves as the entire content layer, with no separate services or back‑end components. All documentation lives under the repository root, and rendering is performed by the consumer (browser, markdown viewer, or static‑site generator).
 
 ---
 *This file is kept in sync by [AutoScribe](https://github.com) — edits here may be overwritten on the next sync.*
