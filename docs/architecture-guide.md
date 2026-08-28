@@ -1,27 +1,33 @@
-# Technical Architecture Guide for SudeshDahale/SudeshDahale Repository
+# Technical Architecture Guide for SudeshDahale/SudeshDahale
 
 ## System Overview
-The SudeshDahale/SudeshDahale repository is a static documentation repository. It contains a single markdown file (README.md) that provides an overview and documentation for the project. There is no executable code, services, or data processing components. The repository's architecture is thus limited to a documentation layer that is served via standard Git hosting platforms (e.g., GitHub) and accessed by users through a web browser or Git client.
+The SudeshDahale/SudeshDahale repository is a monolithic documentation repository. The only file detected in the repository is a top‑level README.md, which serves as the primary source of documentation. No source code, build scripts, or runtime components are present. Consequently, the system architecture is that of a static documentation site managed via Git and rendered by the hosting platform (e.g., GitHub Pages).
 
 ## System Layers
-### Documentation Layer
-**Technologies:** Markdown, Git, GitHub (or equivalent Git hosting)
+### Source Control Layer
+**Technologies:** Git, GitHub
 
-Contains all static documentation assets for the repository. Currently the only asset is README.md, written in Markdown. This layer is version‑controlled by Git and rendered by the hosting platform's Markdown renderer.
+All documentation files, including README.md, are version‑controlled in a Git repository hosted on GitHub. Commits, branches, and pull requests provide change tracking and collaboration.
+
+### Content Layer
+**Technologies:** Markdown
+
+The repository’s content consists solely of Markdown files (currently only README.md). Markdown is the authoring format used to write and structure the documentation.
+
+### Presentation Layer
+**Technologies:** GitHub UI, GitHub Pages (optional)
+
+When the repository is viewed through GitHub’s web interface or GitHub Pages, the Markdown files are rendered to HTML on‑the‑fly. No additional build or runtime environment is required.
 
 
 
 ## Data Flow & Pipelines
-1. A user clones or browses the repository from the remote Git server. 2. The Git client or web interface retrieves the README.md file. 3. The user reads the static markdown content. 4. No further data transformation, storage, or external service interaction occurs.
+Author writes or updates documentation in Markdown → Commit and push changes to the GitHub repository → GitHub stores the new version → When a user navigates to the repository (or to a GitHub Pages site) the Markdown is rendered to HTML and delivered to the browser.
 
 ## Key Design Decisions
-- Use of a single README.md file to centralize all project information, reducing complexity and ensuring that the most important content is immediately visible to visitors.
-- Adoption of plain Markdown for documentation to keep the repository lightweight and portable across all Git platforms without requiring additional tooling.
-- No separation of documentation into multiple files or directories, reflecting a design choice to keep the repository minimal and focused on a single overview document.
+- Use of plain Markdown for documentation to keep the repository lightweight and easy to edit.
+- Monolithic organization – all documentation resides in a single repository without modular separation, which simplifies navigation and versioning.
+- No build tooling or runtime dependencies, leveraging GitHub’s native Markdown rendering capabilities.
 
 ## Scalability & Reliability
-The current static documentation approach scales well for small to medium sized documentation sets. If the documentation grows, the architecture can be extended by:
-- Adding a `docs/` directory to organize multiple markdown files.
-- Introducing a static site generator (e.g., MkDocs, Jekyll) to produce a browsable documentation website.
-- Leveraging GitHub Pages to host the generated site.
-These extensions would maintain the same underlying Git‑based version control while providing richer navigation and search capabilities without altering the core architecture.
+Because the repository serves only static Markdown files, scalability concerns are minimal. As documentation grows, the repository can be cloned and rendered by any standard Git client or static‑site host. If public consumption is required at large scale, enabling GitHub Pages provides automatic CDN caching, ensuring low‑latency delivery to a global audience without additional infrastructure.
