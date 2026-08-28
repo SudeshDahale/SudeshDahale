@@ -4,7 +4,7 @@
 **Authentication:** Bearer JWT Token or Session Cookie
 
 ## Overview
-The SudeshDahale repository currently contains only documentation files and does not expose any programmatic HTTP API endpoints. Consequently, there are no routes, parameters, response schemas, or error codes to document.
+The SudeshDahale repository currently contains only documentation (README.md) and does not expose any web API endpoints or services. Consequently, there are no available routes, parameters, or response structures to document.
 
 ## Endpoints
 No endpoints mapped.
