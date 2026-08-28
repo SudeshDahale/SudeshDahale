@@ -1,35 +1,30 @@
-# Sudesh Dahale – Personal Portfolio
+# SudeshDahale
 
-A concise, static showcase of Sudesh Dahale's professional background and projects.
+A personal repository for Sudesh Dahale's projects and documentation.
 
 ## Overview
 
-This repository contains only static documentation for Sudesh Dahale. It serves as a lightweight, Markdown‑based portfolio that can be rendered on GitHub or any static site host. The project is a single‑file monolith (README.md) and does not include any code, binaries, or additional assets.
-
-The documentation is organized into clear sections—about, experience, projects, and contact—so readers can quickly understand Sudesh's expertise and contributions.
+This repository serves as a central hub for the various projects, documentation, and resources maintained by Sudesh Dahale. It contains static documentation files that outline project overviews, usage instructions, and other relevant information, making it easy for collaborators and users to understand and navigate the contents.
 
 ## Features
 
-- Single‑file Markdown layout for easy viewing and editing
-- Self‑contained personal introduction, skill summary, and work history
-- Project showcase with brief descriptions and links to external repositories
-- Contact information and links to professional profiles (LinkedIn, GitHub, etc.)
-- Ready to be used as a GitHub profile README or rendered via static site generators
+- Centralized collection of project documentation and overviews.
+- Clear usage instructions for each included project.
+- Easy navigation through organized markdown files.
 
 ## Quick Start
 
 ```bash
 git clone https://github.com/SudeshDahale/SudeshDahale.git
 cd SudeshDahale
-# Open the README in your preferred markdown viewer, e.g.:
-#   - VS Code (code .)
-#   - GitHub web UI (push to remote and view)
-#   - Any static site generator if you want to publish as a website
+# Open any markdown file with your preferred viewer, e.g.:
+code .   # or use a markdown preview tool
+
 ```
 
 ## Architecture
 
-Static Documentation – Monolith: The repository consists of a single Markdown file (README.md) that encapsulates all content. No runtime components, dependencies, or build steps are required.
+Static documentation architecture – all content is stored as markdown files (e.g., README.md) without any runtime code or dependencies, providing simple, version-controlled access to project information.
 
 ---
 *This file is kept in sync by [AutoScribe](https://github.com) — edits here may be overwritten on the next sync.*
