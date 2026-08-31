@@ -1,9 +1,8 @@
-# Developer Runbook for SudeshDahale/SudeshDahale Repository
+# SudeshDahale Repository – Developer Runbook
 
 ## Prerequisites
-- Git installed (version 2.20 or newer)
-- A text editor or IDE of your choice (e.g., VS Code, IntelliJ, Vim)
-- Internet connection to clone the repository
+- Git installed (>=2.30)
+- A command-line interface (bash, PowerShell, or CMD)
 
 ## Local Setup & Development
 1. 1. Clone the repository:
@@ -11,20 +10,20 @@
    git clone https://github.com/SudeshDahale/SudeshDahale.git
    cd SudeshDahale
    ```
-2. 2. Review the repository contents. The only file detected is `README.md`, which contains the project documentation.
-3. 3. Since the repository does not contain any executable code, build scripts, or runtime dependencies, there are no additional installation steps required.
-4. 4. If you intend to add code to this repository, ensure you follow standard language‑specific conventions (e.g., initializing a `package.json` for Node.js or a `requirements.txt` for Python) before committing.
+2. 2. Review the repository contents. The only tracked source file is `README.md`, which contains the project documentation and overview.
+3. 3. No build or runtime dependencies have been detected. The repository is a pure documentation monolith, so there is nothing to install or compile.
+4. 4. (Optional) If you intend to edit the Markdown files and view them locally, you may install a Markdown preview extension for your editor (e.g., VS Code's *Markdown Preview*).
 
 ## Running Tests
 ```bash
-
+There are no automated tests defined for this repository.
 ```
 
 ## Troubleshooting
-### Unable to locate the `README.md` after cloning.
-**Resolution:** Confirm that the clone operation succeeded without errors and that you are in the correct directory. Run `ls -la` (Unix/macOS) or `dir` (Windows) to list files.
+### Unable to clone the repository – `permission denied` or `repository not found`.
+**Resolution:** Verify that the repository URL is correct and that you have network access to GitHub. If the repository is private, ensure you are authenticated (SSH keys or HTTPS credentials).
 
-### Git reports authentication errors.
-**Resolution:** Ensure you have access rights to the repository. If it is private, configure SSH keys or use a personal access token with HTTPS.
+### Changes to `README.md` do not appear in your preview.
+**Resolution:** Refresh the Markdown preview in your editor or open the file in a web browser after saving. Ensure the editor’s preview extension is enabled.
 
 
