@@ -1,31 +1,30 @@
-# SudeshDahale Personal Repository
+# SudeshDahale – Personal Portfolio & Documentation Repository
 
-A collection of personal projects, documentation, and resources by Sudesh Dahale.
+A centralized hub for Sudesh Dahale's projects, documentation, and personal resources.
 
 ## Overview
 
-This repository serves as a central hub for Sudesh Dahale's personal work, including project documentation, usage guides, and assorted resources. It currently contains a Docs module that houses markdown files describing various projects and how to use them. The repository is structured for easy navigation and future expansion as new projects are added.
+This repository serves as a personal portfolio and documentation site for Sudesh Dahale. It aggregates project overviews, technical write‑ups, and other resources into a single, easy‑to‑navigate monolithic structure. While no specific codebase is present, the repository is organized to showcase work, provide reference material, and act as a living résumé for collaborators and recruiters.
 
 ## Features
 
-- Comprehensive project documentation compiled in the Docs directory.
-- Clear usage guides and instructions for each showcased project.
-- Easy-to-navigate structure for adding new projects and resources.
+- Clear organization of personal projects and their accompanying documentation.
+- Markdown‑based README files for each project, enabling quick browsing on GitHub.
+- A top‑level overview that ties together all resources in one place.
+- Simple, version‑controlled structure that can be expanded with additional modules or links.
 
 ## Quick Start
 
 ```bash
 git clone https://github.com/SudeshDahale/SudeshDahale.git
 cd SudeshDahale
-# Open any markdown file in the Docs folder with your preferred viewer, e.g.:
-open Docs/README.md   # macOS
-xdg-open Docs/README.md   # Linux
-start Docs\README.md   # Windows
+# All content is viewable directly in the repository or via a Markdown preview tool.
+# No build or installation steps are required.
 ```
 
 ## Architecture
 
-The repository follows a simple, flat architecture focused on documentation. The top-level Docs folder contains markdown files for each project, serving as the primary source of information. No code execution or build processes are required, making the repository instantly accessible to readers.
+The repository follows a straightforward monolithic layout, consisting mainly of Markdown documentation files grouped under a single root. Each project or topic can be added as a sub‑directory with its own README, while the main README provides navigation and context.
 
 ---
 *This file is kept in sync by [AutoScribe](https://github.com) — edits here may be overwritten on the next sync.*
