@@ -1,50 +1,53 @@
-# SudeshDahale Repository Developer Runbook
+# SudeshDahale/SudeshDahale Repository – Developer Runbook
 
 ## Prerequisites
-- Git installed (version 2.20+ recommended)
-- A markdown viewer or editor (e.g., Visual Studio Code, Typora, or any IDE with markdown preview capability)
-- Internet connection for cloning the repository
+- Git installed (>=2.20) for cloning the repository.
+- A text editor or IDE (e.g., VS Code, Sublime Text, Vim).
+- Optional: A Markdown preview tool or static‑site generator (e.g., VS Code Markdown Preview, MkDocs, Jekyll) if you want to render the README as a site.
 
 ## Local Setup & Development
 1. 1. Clone the repository:
-2.    ```sh
+2.    ```bash
 3.    git clone https://github.com/SudeshDahale/SudeshDahale.git
-4.    ```
-5. 
-6. 2. Navigate into the project directory:
-7.    ```sh
-8.    cd SudeshDahale
-9.    ```
-10. 
-11. 3. Verify that the `README.md` file is present at the repository root. This file contains the primary project documentation and overview.
-12. 
-13. 4. Open `README.md` in your preferred markdown viewer or IDE to read the documentation:
-14.    - VS Code: `code README.md`
-15.    - Command‑line preview (optional, using `grip`):
-16.      ```sh
-17.      pip install grip   # if you have Python/pip installed
-18.      grip README.md
-19.      ```
-20. 
-21. 5. (Optional) If you want a live‑reload preview, you can use a simple HTTP server:
-22.    ```sh
-23.    npx serve .   # requires Node.js; serves the current directory
-24.    ```
-25.    Then open `http://localhost:5000/README.md` in a browser.
+4.    cd SudeshDahale
+5.    ```
+6. 2. Open the project folder in your preferred editor.
+7. 3. Edit `README.md` as needed. The file is plain Markdown; no build step is required for simple edits.
+8. 4. (Optional) If you want to preview the Markdown as a static site:
+9.    - **VS Code**: Open `README.md` and press `Ctrl+Shift+V` (or `Cmd+Shift+V` on macOS) to view the preview.
+10.    - **MkDocs** (if you prefer a local site):
+11.      ```bash
+12.      pip install mkdocs
+13.      mkdocs serve
+14.      ```
+15.      This will serve the `docs/` folder (create one if you want) at `http://127.0.0.1:8000`.
+16.    - **Jekyll** (GitHub Pages style):
+17.      ```bash
+18.      gem install bundler jekyll
+19.      jekyll new . --force
+20.      bundle exec jekyll serve
+21.      ```
+22.      The `README.md` can be renamed to `index.md` inside the Jekyll site structure to render.
+23. 5. Commit and push changes:
+24.    ```bash
+25.    git add README.md
+26.    git commit -m "Update profile documentation"
+27.    git push origin main
+28.    ```
 
 ## Running Tests
 ```bash
-
+There are no automated tests for this repository. Validation is limited to visual inspection of the rendered Markdown (see step 4).
 ```
 
 ## Troubleshooting
-### `git clone` fails with authentication or network errors.
-**Resolution:** Verify that you have internet access and that the repository URL is correct. If the repository is private, ensure you have the necessary SSH keys or personal access token configured.
+### Markdown preview does not render correctly in VS Code.
+**Resolution:** Ensure the built‑in Markdown preview is enabled (`Ctrl+Shift+P` → `Markdown: Open Preview`). If extensions interfere, disable them temporarily.
 
-### `README.md` is missing after cloning.
-**Resolution:** Make sure the clone completed successfully. Run `git status` to check for any incomplete checkout, or re‑clone the repository.
+### MkDocs or Jekyll commands fail with `ModuleNotFoundError` or `GemNotFound`.
+**Resolution:** Install the missing dependencies: `pip install mkdocs` for MkDocs, or `gem install bundler jekyll` for Jekyll. Verify your Python or Ruby environment is correctly set up.
 
-### Markdown does not render correctly in your editor.
-**Resolution:** Install a markdown extension/plugin for your editor (e.g., "Markdown All in One" for VS Code) or use an external viewer such as `grip` or a web‑based markdown preview tool.
+### Git push is rejected due to permission errors.
+**Resolution:** Check that you have write access to the repository. Use SSH keys or a personal access token for HTTPS authentication.
 
 

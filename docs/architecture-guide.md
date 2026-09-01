@@ -1,66 +1,34 @@
-# Technical Architecture Guide for SudeshDahale/SudeshDahale Repository
+# Technical Architecture Guide – SudeshDahale Personal Profile Repository
 
 ## System Overview
-The SudeshDahale/SudeshDahale repository is a documentation‑only monolith. Its sole artifact is a set of Markdown files, currently represented by the top‑level README.md. The repository does not contain any source code, binaries, or runtime components. Consequently, the architecture revolves around the creation, maintenance, and consumption of documentation rather than execution of software services.
-
-**Evidence**: The repository listing shows only one real file path – `README.md`. No source directories, configuration files, or build scripts are present. The detected architecture style is *Monolith, Documentation‑Only* with a single module: *Documentation*.
-
-### System Layers
-| Layer | Description | Technologies (evidence) |
-|-------|-------------|--------------------------|
-| **Documentation Layer** | Primary source of truth for project information. Contains Markdown files (`README.md`) that describe the repository purpose, usage, and any related links. | Markdown (`README.md`) – the only file detected. |
-| **Presentation Layer (Optional)** | How the documentation is rendered for end users. Not part of the repository, but typical consumers include GitHub’s built‑in Markdown renderer or external static‑site generators if adopted in the future. | GitHub web UI (renders Markdown). |
-
-**Key Design Decisions**
-1. **Single‑File Documentation** – All project information is consolidated in `README.md`. This simplifies navigation and ensures that the most important details are visible at the repository root. *(Evidence: only `README.md` present)*.
-2. **Monolithic Repository Layout** – By keeping documentation in a single repository without sub‑modules or external services, the project avoids dependency management and build complexity. *(Evidence: no sub‑directories or additional modules detected)*.
-3. **Markdown Format** – Chosen for its readability in plain text editors and native rendering on GitHub. *(Evidence: file extension `.md`)*.
-
-### Component Interactions & Data Flow
-1. **Author → Markdown Files** – Contributors edit `README.md` using any text editor. Changes are committed via Git.
-2. **Git → Remote (GitHub)** – Commits are pushed to the remote repository.
-3. **GitHub → Viewer** – GitHub renders the Markdown to HTML for web viewers. No additional transformation pipelines exist within the repository.
-
-**Data Flow Diagram (textual)**
-```
-[Author] --git push--> [GitHub Repository] --render--> [Browser/Viewer]
-```
-All data stays within the Git version‑control system; there are no external data stores or APIs.
-
-### Scalability Considerations
-Even though the repository currently holds a single Markdown file, future growth may introduce additional documentation assets (e.g., design docs, API specs). To scale the documentation architecture:
-- **Structure**: Introduce a `docs/` directory to group related Markdown files, preserving the monolithic nature while improving navigability.
-- **Navigation**: Add a Table of Contents (TOC) in the root `README.md` linking to sub‑documents.
-- **Tooling**: Leverage GitHub Pages with a static site generator (e.g., Jekyll, MkDocs) if richer presentation, search, or versioned documentation becomes needed. This would add a *Presentation Layer* without altering the core documentation content.
-- **Collaboration**: Use GitHub Issues/Discussions for feedback and pull‑request templates to enforce documentation standards.
-
-These suggestions are optional and should be evaluated based on the volume and complexity of future documentation.
-
-### Summary
-The SudeshDahale/SudeshDahale repository is a minimal, monolithic documentation store consisting solely of `README.md`. Its architecture is straightforward: authors edit Markdown, Git tracks changes, and GitHub renders the content for consumption. The design emphasizes simplicity, low overhead, and immediate visibility. Scalability can be achieved by organizing additional Markdown files, adding a TOC, and optionally employing static site generation for richer consumption experiences.
-
-**All statements above are directly inferred from the repository's current contents and the detected architecture style.**
+The SudeshDahale repository is a monolithic static site built entirely from Markdown source files. Its sole module is the Documentation module, represented by the top‑level `README.md`. The site is rendered as HTML (typically via GitHub Pages or a similar static‑site host) and delivered directly to end‑users without any server‑side processing. This guide describes the layers, data flow, design decisions, and scalability considerations of this lightweight architecture.
 
 ## System Layers
-### Documentation Layer
+### Content Layer
 **Technologies:** Markdown
 
-Contains the Markdown files that capture all project knowledge, currently only README.md.
+All content is authored in plain Markdown files stored in the repository. The primary artifact is `README.md`, which contains personal profile information, project listings, and other documentation. This layer is version‑controlled by Git, providing history, branching, and collaboration capabilities.
 
-### Presentation Layer (Optional)
-**Technologies:** GitHub UI, Potential static site generators
+### Build/Rendering Layer
+**Technologies:** GitHub Pages (built‑in Jekyll renderer) or any Markdown‑to‑HTML static site generator
 
-Renders the Markdown for end users via GitHub's built‑in renderer or a future static‑site generator.
+When the repository is built (e.g., by GitHub Pages or a local static‑site generator), the Markdown source is transformed into static HTML, CSS, and optional assets. No dynamic runtime code is introduced; the transformation is a pure compile‑time step.
+
+### Hosting & Delivery Layer
+**Technologies:** CDN (GitHub Pages CDN, Cloudflare, etc.), HTTPS
+
+The generated static assets are served from a content‑delivery network (CDN) or static‑file host (GitHub Pages, Netlify, etc.). Because the site consists only of static files, the hosting layer can scale automatically without any server provisioning.
 
 
 
 ## Data Flow & Pipelines
-[Author] --git push--> [GitHub Repository] --render--> [Browser/Viewer]
+1️⃣ **Authoring** – A contributor edits `README.md` (or adds new Markdown files) in the Git repository. 2️⃣ **Commit & Push** – Git records the change and pushes it to the remote origin. 3️⃣ **Build Trigger** – The hosting platform detects the push and runs a static‑site build step, converting Markdown to HTML. 4️⃣ **Artifact Publication** – The resulting static files are uploaded to the CDN. 5️⃣ **User Access** – End users request the site URL; the CDN serves the pre‑rendered HTML/CSS instantly, with no server‑side logic.
 
 ## Key Design Decisions
-- Single‑File Documentation in README.md
-- Monolithic repository layout without sub‑modules
-- Use of Markdown for readability and native GitHub rendering
+- Use of Markdown as the sole content format – ensures simplicity, readability, and easy editing for non‑technical contributors.
+- Monolithic static site approach – eliminates runtime dependencies, reduces attack surface, and lowers operational overhead.
+- Leverage Git‑based hosting (e.g., GitHub Pages) – provides built‑in CI for static site generation and automatic HTTPS.
+- Single‑file documentation model – the entire site lives in `README.md`, keeping the repository small and focused.
 
 ## Scalability & Reliability
-Introduce a docs/ directory, a TOC, and optionally GitHub Pages with a static site generator to handle larger documentation sets while preserving the monolithic, low‑overhead nature of the repo.
+Because the architecture is static, scalability is achieved automatically by the underlying CDN. Adding more Markdown pages only increases the build time linearly and the storage footprint marginally. The site can handle any amount of traffic without additional configuration, as each request is served from edge caches. If the documentation set grows substantially, a static‑site generator can be introduced to split content into multiple files while preserving the same delivery model.
