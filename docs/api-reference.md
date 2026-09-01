@@ -4,7 +4,7 @@
 **Authentication:** Bearer JWT Token or Session Cookie
 
 ## Overview
-The SudeshDahale repository is a static documentation-only project. It contains no source code, services, or defined API endpoints. Consequently, there are no HTTP routes, request parameters, response schemas, or error codes associated with this repository.
+The SudeshDahale repository contains documentation only (e.g., README.md) and does not expose any HTTP endpoints or services. Consequently, there are no API routes, parameters, responses, or error codes to document.
 
 ## Endpoints
 No endpoints mapped.
